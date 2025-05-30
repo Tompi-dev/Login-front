@@ -31,12 +31,12 @@ export default function Auth() {
       const data = await response.json();
       console.log('Login successful:', data);
 
-     
+
       if (data.token) {
-  localStorage.setItem('token', data.token);
-  localStorage.setItem('userId', data.user.id);
-  localStorage.setItem('isBlocked', data.user.isBlocked ? 'true' : 'false');
-}
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('userId', data.user.id);
+        localStorage.setItem('isBlocked', data.user.isBlocked ? 'true' : 'false');
+      }
 
 
       navigate('/home');
@@ -61,7 +61,7 @@ export default function Auth() {
                     <form onSubmit={handleLogin} className='col-lg-6 mx-auto'>
                       <p>Please login to your account</p>
 
-                      <div className="form-outline mb-4">
+                      <div className="form-outline-gradient mb-4">
                         <input
                           type="email"
                           className="form-control"
@@ -73,7 +73,7 @@ export default function Auth() {
                         <label className="form-label">Email</label>
                       </div>
 
-                      <div className="form-outline mb-4">
+                      <div className="form-outline-gradient mb-4">
                         <input
                           type="password"
                           className="form-control"

@@ -28,13 +28,13 @@ export default function Register() {
       }
 
 
-       if (response.status === 400) {
+      if (response.status === 400) {
         const data = await response.json();
         setError(data.message || 'Email was repeated ');
         return;
       }
 
-       if (response.status === 401) {
+      if (response.status === 401) {
         const data = await response.json();
         setError(data.message || 'Password should be more than 8 symbols ');
         return;
@@ -69,7 +69,7 @@ export default function Register() {
                     <form onSubmit={handleRegister} className='col-lg-6 mx-auto'>
                       <p>Please register to continue</p>
 
-                      <div className="form-outline mb-4">
+                      <div className="form-outline-gradient mb-4">
                         <input
                           type="text"
                           className="form-control"
@@ -82,18 +82,18 @@ export default function Register() {
                       </div>
 
                       <div className="form-outline-gradient mb-4">
-  <input
-    type="email"
-    className="form-control input-with-gradient"
-    placeholder="Email address"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    required
-  />
-  <label className="form-label">Email address</label>
-</div>
+                        <input
+                          type="email"
+                          className="form-control input-with-gradient"
+                          placeholder="Email address"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                        />
+                        <label className="form-label">Email address</label>
+                      </div>
 
-                      <div className="form-outline mb-4">
+                      <div className="form-outline-gradient mb-4">
                         <input
                           type="password"
                           className="form-control"
