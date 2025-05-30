@@ -7,13 +7,14 @@ import { MdDeleteForever } from "react-icons/md";
 
 import { MdLockOutline } from "react-icons/md";
 import { MdLockOpen } from "react-icons/md";
-import {API_BASE_URL} from '../config/api.js' 
+// import {API_BASE_URL} from '../config/api.js' 
+
 
 export default function UserTable() {
     const [users, setUsers] = useState([]);
     const [selected, setSelected] = useState([]);
     const [selectAll, setSelectAll] = useState(false);
-
+    const API_BASE_URL = "https://login-backend-production-d4d3.up.railway.app";
     console.log('userId from localStorage:', localStorage.getItem('userId'));
 
     const isBlocked = localStorage.getItem('isBlocked') === 'true';
