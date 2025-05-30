@@ -1,5 +1,5 @@
-npm install date-fns
-npm install axios react-icons
-composer require nelmio/cors-bundle
-npm install -g mdb-cli
-npm install react-router-dom
+# npm install date-fns
+# npm install axios react-icons
+# composer require nelmio/cors-bundle
+# npm install -g mdb-cli
+# npm install react-router-dom
