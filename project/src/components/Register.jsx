@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import './Auth.css'
 export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -30,10 +30,15 @@ export default function Register() {
 
        if (response.status === 400) {
         const data = await response.json();
-        setError(data.message || 'ТЧо тне так ');
+        setError(data.message || 'Email was repeated ');
         return;
       }
-     
+
+       if (response.status === 401) {
+        const data = await response.json();
+        setError(data.message || 'Password should be more than 8 symbols ');
+        return;
+      }
       if (!response.ok) {
         const errorData = await response.json();
         setError(errorData.message || 'Registration failed');
@@ -42,7 +47,7 @@ export default function Register() {
 
       const data = await response.json();
       console.log('Registration successful:', data);
-      navigate('/home');
+      navigate('/login');
     } catch (err) {
       console.error('Registration error:', err);
       setError('Failed to connect to server');
@@ -51,17 +56,17 @@ export default function Register() {
 
   return (
     <section className="vh-100 vw-100 d-flex justify-content-center align-items-center gradient-form" style={{ backgroundColor: '#f7f7f7' }}>
-      <div className="container py-5 h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-xl-10">
+      <div className="container-fluid h-100">
+        <div className="row d-flex vw-100 vh-100 justify-content-center align-items-center h-100">
+          <div className="col-12">
             <div className="card rounded-3 text-black">
               <div className="row g-0">
-                <div className="col-lg-6">
+                <div className="col-lg-6 vh-100 d-flex justify-content-center align-items-center">
                   <div className="card-body p-md-5 mx-md-4">
                     <div className="text-center">
                       <h4 className="mt-1 mb-5 pb-1">Create Your Account</h4>
                     </div>
-                    <form onSubmit={handleRegister}>
+                    <form onSubmit={handleRegister} className='col-lg-6 mx-auto'>
                       <p>Please register to continue</p>
 
                       <div className="form-outline mb-4">
@@ -76,17 +81,17 @@ export default function Register() {
                         <label className="form-label">Name</label>
                       </div>
 
-                      <div className="form-outline mb-4">
-                        <input
-                          type="email"
-                          className="form-control"
-                          placeholder="Email address"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
-                        />
-                        <label className="form-label">Email</label>
-                      </div>
+                      <div className="form-outline-gradient mb-4">
+  <input
+    type="email"
+    className="form-control input-with-gradient"
+    placeholder="Email address"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    required
+  />
+  <label className="form-label">Email address</label>
+</div>
 
                       <div className="form-outline mb-4">
                         <input
@@ -102,7 +107,7 @@ export default function Register() {
                       {error && <div className="text-danger mb-3">{error}</div>}
 
                       <div className="text-center pt-1 mb-5 pb-1">
-                        <button className="btn btn-success btn-block fa-lg mb-3" type="submit">
+                        <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">
                           Register
                         </button>
                       </div>
@@ -111,10 +116,10 @@ export default function Register() {
                 </div>
                 <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
                   <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                    <h4 className="mb-4">Join us today</h4>
-                    <p className="small mb-0">
+                    <h1 className="mb-4">Join us today</h1>
+                    <h3 >
                       Create your account to access the system. Stay organized and connected with our easy-to-use platform.
-                    </p>
+                    </h3>
                   </div>
                 </div>
               </div>

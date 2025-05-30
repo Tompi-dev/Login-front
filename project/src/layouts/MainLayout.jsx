@@ -4,7 +4,7 @@ import './MainLayout.css'
 const MainLayout = () => {
   return (
     <div className='div-wrapper'>
-      <h1>MainLayout</h1>
+     
       
       <Outlet /> 
       
