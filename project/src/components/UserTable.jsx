@@ -7,7 +7,7 @@ import { MdDeleteForever } from "react-icons/md";
 
 import { MdLockOutline } from "react-icons/md";
 import { MdLockOpen } from "react-icons/md";
-
+import {API_BASE_URL} from '../config/api.js' 
 
 export default function UserTable() {
     const [users, setUsers] = useState([]);
@@ -22,7 +22,7 @@ export default function UserTable() {
 
     const fetchUsers = async () => {
         try {
-            const res = await axios.get('http://127.0.0.1:8000/api/users', {
+            const res = await axios.get(`${API_BASE_URL}/api/users`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -94,7 +94,7 @@ const toggleSelectAll = () => {
       payload = { ids: selected };
     }
         try {
-            const url = `http://127.0.0.1:8000/api/users/${action}`;
+            const url = `${API_BASE_URL}/api/users/${action}`;
             await axios.post(url, payload, {
                 headers: {
                     Authorization: `Bearer ${token}`,
