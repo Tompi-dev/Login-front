@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css'
-import {API_BASE_URL} from '../config/api.js' 
+// import {API_BASE_URL} from '../config/api.js' 
 export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
+  const API_BASE_URL = "https://login-backend-production-d4d3.up.railway.app";
   const handleRegister = async (e) => {
     e.preventDefault();
     setError('');
