@@ -58,7 +58,7 @@ export default function Auth() {
                     <div className="text-center">
                       <h4 className="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
                     </div>
-                    <form onSubmit={handleLogin} className='col-lg-6 mx-auto'>
+                    <div onClick={handleLogin} className='col-lg-6 mx-auto'>
                       <p>Please login to your account</p>
 
                       <div className="form-outline-gradient mb-4">
@@ -97,7 +97,7 @@ export default function Auth() {
                         <p className="mb-0 me-2">Don't have an account?</p>
                         <button type="button" onClick={() => navigate('/register')} className="btn btn-outline-danger" >Create new</button>
                       </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
                 <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
