@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { formatDistanceToNowStrict, parseISO } from 'date-fns';
+import { formatDistanceToNowStrict,  format } from 'date-fns';
 
 
 import { MdDeleteForever } from "react-icons/md";
@@ -187,21 +187,21 @@ const toggleSelectAll = () => {
                                     {user.status}
                                 </span>
                             </td>
-                            <td>
+                            {/* <td>
                                 {user.lastLogin
                                     ? `${formatDistanceToNowStrict(parseISO(user.lastLogin), { addSuffix: true })}`
                                     : 'N/A'}
-                            </td>
+                            </td> */}
 
-                              {/* <td>
+                              <td>
   {user.last_login && user.last_login.date ? (
-    <span title={format(new Date(user.last_login.date), 'yyyy-MM-dd HH:mm:ss')}>
-      {formatDistanceToNowStrict(new Date(user.last_login.date), { addSuffix: true })}
+    <span title={format(new Date(user.lastLogin), 'yyyy-MM-dd HH:mm:ss')}>
+      {formatDistanceToNowStrict(new Date(user.lastLogin), { addSuffix: true })}
     </span>
   ) : (
     'N/A'
   )}
-</td> */}
+</td>
 
 
                             <td>{user.level || 'N/A'}</td>
