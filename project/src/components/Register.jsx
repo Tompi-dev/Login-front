@@ -67,7 +67,7 @@ export default function Register() {
                     <div className="text-center">
                       <h4 className="mt-1 mb-5 pb-1">Create Your Account</h4>
                     </div>
-                    <div onClick={handleRegister} action="#" method="POST">
+                    <form onSubmit={handleRegister} action="#" method="POST">
 
                       <p>Please register to continue</p>
 
@@ -99,6 +99,7 @@ export default function Register() {
                         <input
                           type="password"
                           className="form-control"
+                          placeholder='Enter Password'
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
                           required
@@ -113,7 +114,7 @@ export default function Register() {
                           Register
                         </button>
                       </div>
-                    </div>
+                    </form>
                   </div>
                 </div>
                 <div className="col-lg-6 d-flex align-items-center gradient-custom-2">
