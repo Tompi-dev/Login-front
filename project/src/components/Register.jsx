@@ -67,7 +67,8 @@ export default function Register() {
                     <div className="text-center">
                       <h4 className="mt-1 mb-5 pb-1">Create Your Account</h4>
                     </div>
-                    <form onSubmit={handleRegister} className='col-lg-6 mx-auto'>
+                    <form onSubmit={handleRegister} action="#" method="POST">
+
                       <p>Please register to continue</p>
 
                       <div className="form-outline-gradient mb-4">
