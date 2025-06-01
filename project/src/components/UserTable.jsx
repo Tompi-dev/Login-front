@@ -194,7 +194,7 @@ const toggleSelectAll = () => {
                             </td> */}
 
                               <td>
-  {user.last_login && user.last_login.date ? (
+  {user.lastLogin  ? (
     <span title={format(new Date(user.lastLogin), 'yyyy-MM-dd HH:mm:ss')}>
       {formatDistanceToNowStrict(new Date(user.lastLogin), { addSuffix: true })}
     </span>

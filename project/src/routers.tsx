@@ -10,7 +10,7 @@ import MainLayout from './layouts/MainLayout';
 import HomePage from './pages/HomePage';
 import Register from './components/Register';
 import Auth from './components/Auth';
-import GuestRoute from './pages/GuestRoute ';
+import GuestRoute from './pages/GuestRoute';
 import PrivateRoute from './pages/PrivateRoute';
 
 const router = createBrowserRouter(
