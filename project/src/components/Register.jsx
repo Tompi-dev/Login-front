@@ -48,7 +48,7 @@ export default function Register() {
 
       const data = await response.json();
       console.log('Registration successful:', data);
-      navigate('/login');
+      navigate('/');
     } catch (err) {
       console.error('Registration error:', err);
       setError('Failed to connect to server');

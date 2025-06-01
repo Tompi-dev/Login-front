@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { formatDistanceToNowStrict, parseISO } from 'date-fns';
 
@@ -11,6 +12,7 @@ import { MdLockOpen } from "react-icons/md";
 
 
 export default function UserTable() {
+    const navigate = useNavigate();
     const [users, setUsers] = useState([]);
     const [selected, setSelected] = useState([]);
     const [selectAll, setSelectAll] = useState(false);
@@ -34,7 +36,8 @@ export default function UserTable() {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     localStorage.removeItem('isBlocked');
-    window.location.href = '/'; 
+    navigate('/', { replace: true });
+
 }
 
             
@@ -70,22 +73,14 @@ const toggleSelectAll = () => {
         const token = localStorage.getItem('token');
 
         if (!token) {
-            window.location.href = '/';
+            navigate('/', { replace: true });
+
             return;
         }
 
         let payload;
 
-        // if (action === 'block' || action === 'unblock') {
-        //     payload = {
-        //         target_user_ids: selected,
-        //     };
-        // } else {
-        //     payload = {
-        //         ids: selected,
-        //     };
-        // }
-
+      
         
     if (action === 'block') {
       payload = { blocking_user_id: userId, target_user_ids: selected };
@@ -110,7 +105,7 @@ const toggleSelectAll = () => {
         catch (err) {
             if (err.response?.status === 401) {
                 localStorage.removeItem('token');
-                window.location.href = '/';
+                navigate('/', { replace: true });
             }
             else if (err.response?.status === 400) {
                 alert(err.response.data.error || 'Invalid request.');
@@ -120,7 +115,7 @@ const toggleSelectAll = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     localStorage.removeItem('isBlocked');
-    window.location.href = '/';
+    navigate('/', { replace: true });
 }
 
             else {
