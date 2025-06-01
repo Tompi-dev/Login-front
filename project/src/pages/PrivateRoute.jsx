@@ -5,7 +5,7 @@ const PrivateRoute = ({ children }) => {
   const isBlocked = localStorage.getItem('isBlocked') === 'true';
 
   if (!token || isBlocked) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return children;
