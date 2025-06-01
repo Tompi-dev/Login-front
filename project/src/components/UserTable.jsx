@@ -34,7 +34,7 @@ export default function UserTable() {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     localStorage.removeItem('isBlocked');
-    window.location.href = '/login';
+    window.location.href = '/'; 
 }
 
             
@@ -70,7 +70,7 @@ const toggleSelectAll = () => {
         const token = localStorage.getItem('token');
 
         if (!token) {
-            window.location.href = '/login';
+            window.location.href = '/';
             return;
         }
 
@@ -110,7 +110,7 @@ const toggleSelectAll = () => {
         catch (err) {
             if (err.response?.status === 401) {
                 localStorage.removeItem('token');
-                window.location.href = '/login';
+                window.location.href = '/';
             }
             else if (err.response?.status === 400) {
                 alert(err.response.data.error || 'Invalid request.');
@@ -120,7 +120,7 @@ const toggleSelectAll = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
     localStorage.removeItem('isBlocked');
-    window.location.href = '/login';
+    window.location.href = '/';
 }
 
             else {

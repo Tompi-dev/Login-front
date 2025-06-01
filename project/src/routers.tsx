@@ -24,14 +24,7 @@ const router = createBrowserRouter(
           </GuestRoute>
         }
       />
-      <Route
-        path="login"
-        element={
-          <GuestRoute>
-            <Auth />
-          </GuestRoute>
-        }
-      />
+     
       <Route
         path="register"
         element={
