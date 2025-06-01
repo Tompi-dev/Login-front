@@ -1,4 +1,4 @@
-// src/routers.js
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -6,10 +6,11 @@ import {
 } from 'react-router-dom';
 
 import MainLayout from './layouts/MainLayout';
-import Auth from './components/Auth';
-import Register from './components/Register';
+
 import HomePage from './pages/HomePage';
-import GuestRoute from './pages/GuestRoute';
+import Register from './components/Register';
+import Auth from './components/Auth';
+import GuestRoute from './pages/GuestRoute ';
 import PrivateRoute from './pages/PrivateRoute';
 
 const router = createBrowserRouter(
@@ -52,3 +53,6 @@ const router = createBrowserRouter(
 );
 
 export default router;
+
+
+
